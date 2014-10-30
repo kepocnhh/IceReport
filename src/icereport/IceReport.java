@@ -3,14 +3,10 @@ package icereport;
 import api.API;
 import api.CreateXLS;
 import ice.*;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 
 public class IceReport
 {
@@ -57,7 +53,7 @@ public class IceReport
         itogs[0]=myitog;
         try
         {
-            CreateXLS._CreateXLS(itogs,xlspath);
+            CreateXLS._CreateXLS(itogs,xlspath,userlist);
         }
         catch (IOException ex){}
         catch (ClassNotFoundException ex) {}
