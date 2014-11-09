@@ -13,9 +13,18 @@ import java.util.List;
 
 public class IceReport
 {
-    static private String newpath = "/home/toha/ForIce/NewLogs/";
-    static private String new_accpath = "/home/toha/ForIce/account_new";
-    static private String xlspath = "/home/toha/ForIce/newXLS";
+    static private String newpath = 
+            "D:\\Загрузки\\ForIce\\Logs\\NewLogs\\"
+            //"/home/toha/ForIce/NewLogs/"
+            ;
+    static private String new_accpath = 
+            "D:\\Загрузки\\ForIce\\NewAccounts\\account"
+            //"/home/toha/ForIce/account_new"
+            ;
+    static private String xlspath = 
+            "D:\\Загрузки\\ForIce\\newXLS"
+            //"/home/toha/ForIce/newXLS"
+            ;
     public static void main(String[] args)
     {
             Date bgn = new Date();
@@ -24,7 +33,7 @@ public class IceReport
             bgn.setDate(1);
             Date end = new Date();
             end.setYear(114);
-            end.setMonth(6);
+            end.setMonth(11);
             end.setDate(30);
         Itog myitog;//объект итогов пользователя
         List<String> stringlist = null;
@@ -88,6 +97,11 @@ public class IceReport
                                                 newitog = (Itog) list_BM.get(q);
                                             }
                                         }
+                                        if(newitog.date_close==null)
+                                        {
+                                            System.out.println("newitog.date_close==null");
+                                            continue;
+                                        }
                                         user newuser = API.Get_user(newitog.user_email, stringlist);
                                         Itog[] tmp = new Itog[itogs.length+1];
                                         for(int q=0;q<itogs.length;q++)
@@ -126,6 +140,11 @@ public class IceReport
                                             {
                                                 newitog = (Itog) list_BM.get(q);
                                             }
+                                        }
+                                        if(newitog.date_close==null)
+                                        {
+                                            System.out.println("newitog.date_close==null");
+                                            continue;
                                         }
                                         user newuser = API.Get_user(newitog.user_email, stringlist);
                                         Itog[] tmp = new Itog[itogs.length+1];
