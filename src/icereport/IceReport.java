@@ -13,27 +13,32 @@ import java.util.List;
 
 public class IceReport
 {
-    static private String newpath = 
-            "D:\\Загрузки\\ForIce\\Logs\\NewLogs\\"
-            //"/home/toha/ForIce/NewLogs/"
-            ;
-    static private String new_accpath = 
-            "D:\\Загрузки\\ForIce\\NewAccounts\\account"
-            //"/home/toha/ForIce/account_new"
-            ;
-    static private String xlspath = 
-            "D:\\Загрузки\\ForIce\\newXLS"
-            //"/home/toha/ForIce/newXLS"
-            ;
+    static private String newpath;
+    static private String new_accpath;
+    static private String xlspath;
+            static private void linux_deb()
+            {
+                new_accpath = "/home/toha/ForIce/account_new";
+                newpath = "/home/toha/ForIce/NewLogs/";
+                xlspath = "/home/toha/ForIce/newXLS";
+            }
+            static private void windows_deb()
+            {
+                new_accpath = "D:\\Загрузки\\ForIce\\NewAccounts\\account";
+                newpath = "D:\\Загрузки\\ForIce\\Logs\\NewLogs\\";
+                xlspath = "D:\\Загрузки\\ForIce\\newXLS";
+            }
     public static void main(String[] args)
     {
+        linux_deb();
+        //windows_deb();
             Date bgn = new Date();
             bgn.setYear(114);
             bgn.setMonth(6);
             bgn.setDate(1);
             Date end = new Date();
             end.setYear(114);
-            end.setMonth(11);
+            end.setMonth(6);
             end.setDate(30);
         Itog myitog;//объект итогов пользователя
         List<String> stringlist = null;
@@ -55,7 +60,7 @@ public class IceReport
                 String[] files = new File(newpath+path).list();
                 if(files == null)
                 {
-                                   System.out.println(path+" - "+"files == null");
+                                   //System.out.println(path+" - "+"files == null");
                     bgn.setDate(bgn.getDate()+1);
                     continue;
                 }
@@ -63,7 +68,7 @@ public class IceReport
                 {
                     if(files[i].equals("photo")||files[i].equals("pdf"))
                     {
-                                   System.out.println(path+" - "+files[i]);
+                                   //System.out.println(path+" - "+files[i]);
                         continue;
                     }
                     if(files[i].equals("supers"))
@@ -78,7 +83,7 @@ public class IceReport
                             {
                                 if(_super[k].equals("photo")||_super[k].equals("pdf"))
                                 {
-                                   System.out.println(superpth+" - "+_super[k]);
+                                   //System.out.println(superpth+" - "+_super[k]);
                                     continue;
                                 }
                                 if(_super[k].endsWith(".ice"))
@@ -99,7 +104,7 @@ public class IceReport
                                         }
                                         if(newitog.date_close==null)
                                         {
-                                            System.out.println("newitog.date_close==null");
+                                            //System.out.println("newitog.date_close==null");
                                             continue;
                                         }
                                         user newuser = API.Get_user(newitog.user_email, stringlist);
@@ -110,7 +115,7 @@ public class IceReport
                                         }
                                         tmp[itogs.length] = newitog;
                                         itogs = tmp;
-                                        System.out.println(superpth+_super[k]);
+                                        //System.out.println(superpth+_super[k]);
                                     } catch (IOException ex) {
                                         System.out.println(_super[k]+" "+ex.getMessage());
                                         continue;
@@ -120,7 +125,7 @@ public class IceReport
                                     }
                                     continue;
                                 }
-                                   System.out.println(superpth+" - "+"another file");
+                                   //System.out.println(superpth+" - "+"another file");
                                     continue;
                             }
                         }
@@ -143,7 +148,7 @@ public class IceReport
                                         }
                                         if(newitog.date_close==null)
                                         {
-                                            System.out.println("newitog.date_close==null");
+                                            //System.out.println("newitog.date_close==null");
                                             continue;
                                         }
                                         user newuser = API.Get_user(newitog.user_email, stringlist);
@@ -154,7 +159,7 @@ public class IceReport
                                         }
                                         tmp[itogs.length] = newitog;
                                         itogs = tmp;
-                                        System.out.println(path+files[i]);
+                                        //System.out.println(path+files[i]);
                                     } catch (IOException ex) {
                                         System.out.println(files[i]+" "+ex.getMessage());
                                         continue;
@@ -164,7 +169,7 @@ public class IceReport
                                     }
                                     continue;
                                 }
-                                   System.out.println(path+" - "+"another file");
+                                   //System.out.println(path+" - "+"another file");
                 }
                 bgn.setDate(bgn.getDate()+1);
             }
