@@ -31,9 +31,9 @@ public class IceReport
             }
             static private void windows_deb()
             {
-                new_accpath = "D:\\Загрузки\\ForIce\\NewAccounts\\account";
-                newpath = "D:\\Загрузки\\ForIce\\Logs\\NewLogs\\";
-                xlspath = "D:\\Загрузки\\ForIce\\newXLS";
+                new_accpath = "D:\\Downloads\\ForIce\\NewAccounts\\account";
+                newpath = "D:\\Downloads\\ForIce\\Logs\\NewLogs\\";
+                xlspath = "D:\\Downloads\\ForIce\\newXLS";
             }
     static public void SetProp(String a,String p,String x)
     {
