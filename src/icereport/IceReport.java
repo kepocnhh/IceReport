@@ -224,7 +224,7 @@ public class IceReport
         try
         {
             CreateXLS._CreateXLS(itogs,xlspath,userlist);
-                System.out.println("CreateXLS " + xlspath + " DONE");
+                System.out.println("CreateXLS " + xlspath+".xls" + " DONE");
         }
         catch (IOException ex){}
         catch (ClassNotFoundException ex) {}
